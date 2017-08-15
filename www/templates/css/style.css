@@ -1,0 +1,582 @@
+
+body {
+    background-color: #91ced4;
+    font-size: 100%;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+body * {
+    box-sizing: border-box;
+}
+
+h1 {
+    font-family: 'Lato', sans-serif;
+    display: inline-block;
+    font-weight: 100;
+    font-size: 2.8125em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 0 0 0.1em 0;
+    padding: 0 0 0.4em 0;
+}
+
+h3 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 1.25em;
+    margin: 1em 0 0.4em 0;
+}
+div, textarea, input {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#header > div {
+    display: inline;
+}
+
+.headerRight {
+    float: right;
+}
+
+.header-table {
+    background-color: #327a81;
+    color: white;
+    font-size: 1.5em;
+    padding: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+img {
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+}
+
+.table-users {
+    display: inline-block;
+    position: relative;
+    border: 1px solid #327a81;
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+    max-width: calc(100% - 2em);
+    overflow: hidden;
+    width: 800px;
+}
+.info {
+    position: relative;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table td, table th {
+    color: #2b686e;
+    padding: 10px;
+}
+
+table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+table td:last-child {
+    font-size: 0.95em;
+    line-height: 1.4;;
+}
+
+table th {
+    background-color: #daeff1;
+    font-weight: 300;
+}
+
+table tr:nth-child(2n) {
+    background-color: white;
+}
+
+table tr:nth-child(2n+1) {
+    background-color: #edf7f8;
+}
+
+@media screen and (max-width: 700px) {
+    table, tr, td {
+        display: block;
+    }
+
+    td:first-child {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100px;
+    }
+
+    td:not(:first-child) {
+        clear: both;
+        margin-left: 100px;
+        padding: 4px 20px 4px 90px;
+        position: relative;
+        text-align: left;
+    }
+
+    td:not(:first-child):before {
+        color: #91ced4;
+        content: '';
+        display: block;
+        left: 0;
+        position: absolute;
+    }
+
+    td:nth-child(2):before {
+        content: 'Name:';
+    }
+
+    td:nth-child(3):before {
+        content: 'Email:';
+    }
+
+    td:nth-child(4):before {
+        content: 'Phone:';
+    }
+
+    td:nth-child(5):before {
+        content: 'Comments:';
+    }
+
+    tr {
+        padding: 10px 0;
+        position: relative;
+    }
+
+    tr:first-child {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .header-table {
+        background-color: transparent;
+        color: white;
+        font-size: 2em;
+        font-weight: 700;
+        padding: 0;
+        text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    img {
+        border: 3px solid;
+        border-color: #daeff1;
+        height: 100px;
+        margin: 0.5rem 0;
+        width: 100px;
+    }
+
+    td:first-child {
+        background-color: #c8e7ea;
+        border-bottom: 1px solid #91ced4;
+        border-radius: 10px 10px 0 0;
+        position: relative;
+        top: 0;
+        transform: translateY(0);
+        width: 100%;
+    }
+
+    td:not(:first-child) {
+        margin: 0;
+        padding: 5px 1em;
+        width: 100%;
+    }
+
+    td:not(:first-child):before {
+        font-size: .8em;
+        padding-top: 0.3em;
+        position: relative;
+    }
+
+    td:last-child {
+        padding-bottom: 1rem !important;
+    }
+
+    tr {
+        background-color: white !important;
+        border: 1px solid #6cbec6;
+        border-radius: 10px;
+        box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+        margin: 0.5rem 0;
+        padding: 0;
+    }
+
+    .table-users {
+        border: none;
+        box-shadow: none;
+        overflow: visible;
+    }
+}
+
+#calendar {
+    position: absolute;
+    right: 0;
+    padding-right: 20px;
+    z-index: 2;
+}
+
+.container {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.control-group {
+    display: block;
+    vertical-align: top;
+    background: #fff;
+    text-align: left;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 270px;
+    height: 100%;
+    margin: 10px;
+}
+
+.controlWorker {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.control {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.control input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.control__indicator {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background: #e6e6e6;
+}
+
+.control--radio .control__indicator {
+    border-radius: 50%;
+}
+
+.control:hover input ~ .control__indicator,
+.control input:focus ~ .control__indicator {
+    background: #ccc;
+}
+
+.control input:checked ~ .control__indicator {
+    background: #2aa1c0;
+}
+
+.control:hover input:not([disabled]):checked ~ .control__indicator,
+.control input:checked:focus ~ .control__indicator {
+    background: #0e647d;
+}
+
+.control input:disabled ~ .control__indicator {
+    background: #e6e6e6;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.control__indicator:after {
+    content: '';
+    position: absolute;
+    display: none;
+}
+
+.control input:checked ~ .control__indicator:after {
+    display: block;
+}
+
+.control--checkbox .control__indicator:after {
+    left: 8px;
+    top: 4px;
+    width: 3px;
+    height: 8px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.control--checkbox input:disabled ~ .control__indicator:after {
+    border-color: #7b7b7b;
+}
+
+.control--radio .control__indicator:after {
+    left: 7px;
+    top: 7px;
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    background: #fff;
+}
+
+.control--radio input:disabled ~ .control__indicator:after {
+    background: #7b7b7b;
+}
+
+.select {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 15px;
+    width: 100%;
+
+}
+
+.select select {
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+    padding: 10px 15px;
+    outline: 0;
+    border: 0;
+    border-radius: 0;
+    background: #e6e6e6;
+    color: #7b7b7b;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    overflow: hidden;
+}
+
+.select select::-ms-expand {
+    display: none;
+}
+
+.select select:hover,
+.select select:focus {
+    color: #000;
+    background: #ccc;
+}
+
+.select select:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.select__arrow {
+    position: absolute;
+    top: 16px;
+    right: 15px;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    border-style: solid;
+    border-width: 8px 5px 0 5px;
+    border-color: #7b7b7b transparent transparent transparent;
+}
+
+.select select:hover ~ .select__arrow,
+.select select:focus ~ .select__arrow {
+    border-top-color: #000;
+}
+
+.select select:disabled ~ .select__arrow {
+    border-top-color: #ccc;
+}
+
+.button-container {
+    display: flex;
+    margin: 60px auto;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.button {
+    display: flex;
+    overflow: hidden;
+    margin: 10px;
+    padding: 12px 12px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 60ms ease-in-out;
+    text-align: center;
+    white-space: nowrap;
+    text-decoration: none !important;
+    text-transform: none;
+    text-transform: capitalize;
+    color: #fff;
+    border: 0 none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.3;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 160px;
+}
+
+.button:hover {
+    transition: all 60ms ease;
+    opacity: .85;
+}
+
+.button:active {
+    transition: all 60ms ease;
+    opacity: .75;
+}
+
+.button:focus {
+    outline: 1px dotted #959595;
+    outline-offset: -4px;
+}
+
+.button.-regular {
+    color: #202129;
+    background-color: #f2f2f2;
+}
+
+.button.-regular:hover {
+    color: #202129;
+    background-color: #e1e2e2;
+    opacity: 1;
+}
+
+.button.-regular:active {
+    background-color: #d5d6d6;
+    opacity: 1;
+}
+
+.container_worker {
+    max-width: 510px;
+    min-width: 324px;
+    margin: 50px auto 0px;
+    background-color: #fff;
+    border: 1px solid #cfcfcf;
+    border-bottom: 3px solid #ccc;
+}
+
+.row {
+    width: 100%;
+    margin: 0 0 1em 0;
+    padding: 0 2.5em;
+}
+
+.row.header {
+    padding: 1.5em 2.5em;
+    border-bottom: 1px solid #ccc;
+    background: url(http://niiiick.com/files/blur-city-1.jpg) left -80px;
+    color: #fff;
+}
+
+.row.body {
+    padding: .5em 2.5em 1em;
+}
+
+.pull-right {
+    float: right;
+}
+
+
+
+form {
+    max-width: 100%;
+    display: block;
+}
+
+form ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+form ul li {
+    margin: 0 0 0.25em 0;
+    clear: both;
+    display: inline-block;
+    width: 100%;
+}
+
+form ul li:last-child {
+    margin: 0;
+}
+
+form ul li p {
+    margin: 0;
+    padding: 0;
+    float: left;
+}
+
+form ul li p.right {
+    float: right;
+}
+
+form ul li .divider {
+    margin: 0.5em 0 0.5em 0;
+    border: 0;
+    height: 1px;
+    width: 100%;
+    display: block;
+    background-color: #4f6fad;
+    background-image: linear-gradient(to right, #ee9cb4, #4f6fad);
+}
+
+form ul li .req {
+    color: #ee9cb4;
+}
+
+form label {
+    display: block;
+    margin: 0 0 0.5em 0;
+    color: #4f6fad;
+    font-size: 1em;
+}
+
+form input {
+    margin: 0 0 0.5em 0;
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    color: #555;
+    font-size: 1em;
+}
+
+#footer{
+    background-color: #4a7b80;
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
+
+#footer > div {
+    display: inline;
+}
+.review {
+    width: 50%;
+    float: left;
+}
+.reviewText {
+    color: white;
+    padding: 20px;
+}
+
+.infomation {
+    float: right;
+    width: 50%;
+    color: white;
+    padding-left: 250px;
+}
+li {
+    list-style-type: none;
+}
